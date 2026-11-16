@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 
+// Dark pink used as the main color of the whole app.
+const Color kDarkPink = Color(0xFFAD1457);
+
 void main() => runApp(
       MaterialApp(
         title: 'Mini Shopping Cart',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorSchemeSeed: Colors.teal,
+          // Dark pink theme: seed generates matching light pink shades,
+          // and primary is forced to the exact dark pink.
+          colorScheme: ColorScheme.fromSeed(seedColor: kDarkPink).copyWith(
+            primary: kDarkPink,
+            onPrimary: Colors.white,
+          ),
           useMaterial3: true,
         ),
         home: const CartScreen(),
